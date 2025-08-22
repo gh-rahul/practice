@@ -7,5 +7,14 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v5
+            - name: Install Dependencies
+              uses: npm ci
             - name: Lint
-              run: eslint --ext .jsx --fix src
+              run: npm run lint
+            
+            - name:  Test Code
+              run: npm run test
+
+            - name:  Build Code
+              run: npm run build
+
