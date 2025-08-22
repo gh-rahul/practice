@@ -5,5 +5,7 @@ jobs:
     lint:
         runs-on: ubuntu-latest
         steps:
+            - name: checkout
+              uses: actions/checkout@v5
             - name: Lint
               run: eslint --ext .jsx --fix src
