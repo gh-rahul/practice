@@ -22,7 +22,7 @@ jobs:
             
             - name: set output
               id: set_output
-              run: echo "linted=true" >> $GITHUB_OUTPUT
+              run: echo "surprise!!!" >> $GITHUB_OUTPUT
     test:
         needs: lint
         runs-on: ubuntu-latest
