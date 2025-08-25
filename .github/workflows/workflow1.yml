@@ -28,6 +28,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - env:
-              output1: ${{ needs.lint.outputs.output }}
+              output1: ${{needs.lint.outputs.output}}
             run: echo "The output from the lint job is $output1"
 
