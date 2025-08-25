@@ -27,7 +27,5 @@ jobs:
         needs: lint
         runs-on: ubuntu-latest
         steps:
-          - env:
-              output1: ${{needs.lint.outputs.linted}}
-            run: echo "The output from the lint job is $output1"
-
+          - name: get output
+            run: echo "$output1"
