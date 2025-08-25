@@ -28,4 +28,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: get output
-            run: echo "$output1"
+            run: echo "The output is ${{ needs.lint.outputs.linted }}"
