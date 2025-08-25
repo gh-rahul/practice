@@ -4,6 +4,8 @@ on: push
 jobs:
     lint:
         runs-on: ubuntu-latest
+        outputs:
+          linted: ${{ steps.set_output.outputs.linted }}
         steps:
             - name: checkout
               uses: actions/checkout@v5
@@ -17,4 +19,15 @@ jobs:
 
             - name:  Build Code
               run: npm run build
+            
+            - name: set output
+              id: set_output
+              run: echo "linted=true" >> $GITHUB_OUTPUT
+    test:
+        needs: lint
+        runs-on: ubuntu-latest
+        steps:
+          - env:
+              output1: ${{ needs.lint.outputs.linted }}
+            run: echo "The output from the lint job is $output1"
 
