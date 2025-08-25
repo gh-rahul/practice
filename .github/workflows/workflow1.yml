@@ -5,7 +5,7 @@ jobs:
     lint:
         runs-on: ubuntu-latest
         outputs:
-          linted: ${{ steps.set_output.outputs.linted }}
+          linted: ${{ steps.set_output.outputs.output }}
         steps:
             - name: checkout
               uses: actions/checkout@v5
@@ -22,12 +22,12 @@ jobs:
             
             - name: set output
               id: set_output
-              run: echo "surprise!!!" >> $GITHUB_OUTPUT
+              run: echo "output=HELLO!" >> $GITHUB_OUTPUT
     test:
         needs: lint
         runs-on: ubuntu-latest
         steps:
           - env:
-              output1: ${{ needs.lint.outputs.linted }}
+              output1: ${{ needs.lint.outputs.output }}
             run: echo "The output from the lint job is $output1"
 
